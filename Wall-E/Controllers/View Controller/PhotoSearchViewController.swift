@@ -23,7 +23,7 @@ class PhotoSearchViewController: UIViewController {
         super.viewDidLoad()
         photosListTableView.delegate = self
         photosListTableView.dataSource = self
-
+        fetchPhotos()
     }
 
 
@@ -81,7 +81,7 @@ class PhotoSearchViewController: UIViewController {
 
 extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Photos Taken on That Date:"
+        return "Photos Taken on That Date: YYY-MM-DD"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,7 +93,19 @@ extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource 
         let photoIndex = photosArray[indexPath.row]
         cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
         cell.detailTextLabel?.text = selectedDateString
-//        cell.imageView?.image =
+        cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
+//        cell.imageView?.translatesAutoresizingMaskIntoConstraints = true
+//        cell.imageView?.heightAnchor.constraint(equalToConstant: 80).isActive = true
+//        cell.imageView?.widthAnchor.constraint(equalToConstant: 80).isActive = true
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toDetailVC",
+              let destinationVC = segue.destination as? PhotoDetailViewController,
+              let indexPath = photosListTableView.indexPathForSelectedRow else {return}
+        
+        let photoDetailToSend = photosArray[indexPath.row]
+        destinationVC.photoDetailToReceive = photoDetailToSend
     }
 }
