@@ -16,8 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" highlighted="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-ni-HxO">
+                            <datePicker contentMode="scaleToFill" highlighted="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-ni-HxO">
                                 <rect key="frame" x="35" y="33" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="455042840.71669769">
+                                    <!--2015-06-03 16:47:20 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="96807600">
+                                    <!--2004-01-26 11:00:00 +0000-->
+                                </date>
                                 <connections>
                                     <action selector="photoDateDateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="HsF-dN-uV5"/>
                                 </connections>
@@ -55,8 +61,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gR1-M3-JDX">
-                                                    <rect key="frame" x="59" y="38" width="25" height="14.333333333333334"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Photos Were Found For This Date!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gR1-M3-JDX">
+                                                    <rect key="frame" x="59" y="38" width="213" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -100,6 +106,7 @@
                     <navigationItem key="navigationItem" id="Qjh-1C-7uc"/>
                     <connections>
                         <outlet property="photoDateDatePicker" destination="zfY-ni-HxO" id="78g-EI-dKt"/>
+                        <outlet property="photosListTableView" destination="yxj-5d-THS" id="dRr-8Z-Xpo"/>
                         <outlet property="roverSelectionSegmentedControl" destination="1X5-hv-KqK" id="bQO-z9-6Lb"/>
                     </connections>
                 </viewController>

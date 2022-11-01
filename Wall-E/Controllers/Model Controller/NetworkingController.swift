@@ -18,7 +18,7 @@ class NetworkingController {
     private static let dateQueryKey = "earth_date"
     
     //fetch data
-    static func fetch(with rover: String, date: String, completion: @escaping (Result<[Photo], ResultError>) -> Void) {
+    static func fetch(with rover: String, date: String, completion: @escaping (Result<TopLevelDictionary, ResultError>) -> Void) {
         //checking to see if a url can be created from baseURL
         guard let url = URL(string: baseURL) else {completion(.failure(.invalidURL)); return}
         let roverURL = url.appendingPathComponent(rover)
@@ -45,8 +45,8 @@ class NetworkingController {
             
             do {
                 let topLevelDictionary = try JSONDecoder().decode(TopLevelDictionary.self, from: data)
-                let photos = topLevelDictionary.photos
-                completion(.success(photos))
+//                let photos = topLevelDictionary.photos
+                completion(.success(topLevelDictionary))
             } catch {
                 print("❌Unable to decode!")
                 completion(.failure(.unableToDecode))

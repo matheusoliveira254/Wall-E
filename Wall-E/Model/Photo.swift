@@ -20,5 +20,5 @@ struct Photo: Decodable {
     
     let image: String?
     let date: String?
-    let id: String?
+    let id: Int?
 }//End of struct
