@@ -94,6 +94,8 @@ extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource 
         cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
         cell.detailTextLabel?.text = selectedDateString
         cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
+//        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+//        cell.imageView.set.
 //        cell.imageView?.translatesAutoresizingMaskIntoConstraints = true
 //        cell.imageView?.heightAnchor.constraint(equalToConstant: 80).isActive = true
 //        cell.imageView?.widthAnchor.constraint(equalToConstant: 80).isActive = true

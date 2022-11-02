@@ -62,27 +62,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Photos Were Found For This Date!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gR1-M3-JDX">
-                                                    <rect key="frame" x="20" y="49" width="213" height="14.333333333333334"/>
+                                                    <rect key="frame" x="183.66666666666663" y="49" width="170.33333333333337" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OLw-7g-HtV">
-                                                    <rect key="frame" x="321.33333333333331" y="49" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <rect key="frame" x="354" y="49" width="0.0" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="cop-2h-Wi3">
-                                                    <rect key="frame" x="20.166666666666664" y="46.666666666666664" width="23.666666666666668" height="17.333333333333332"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="nasa-N3BQHYOVq5E-unsplash" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="cop-2h-Wi3">
+                                                    <rect key="frame" x="20" y="0.0" width="148.66666666666663" height="111"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="h6f-0U-0Tg" kind="show" id="XlR-Gq-Tga"/>
+                                            <segue destination="h6f-0U-0Tg" kind="show" identifier="toDetailVC" id="XlR-Gq-Tga"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,7 +117,7 @@
         <!--Photo-->
         <scene sceneID="aKo-Fw-0vo">
             <objects>
-                <viewController id="h6f-0U-0Tg" sceneMemberID="viewController">
+                <viewController id="h6f-0U-0Tg" customClass="PhotoDetailViewController" customModule="Wall_E" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c1r-YV-y7E">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JKT-LS-A2l">
                                 <rect key="frame" x="16" y="91" width="358" height="494"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-y3-EXP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-y3-EXP">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="395"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="5d3-2s-fbH">
@@ -163,6 +163,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="Qef-vc-WFk"/>
+                    <connections>
+                        <outlet property="photoDetailImageView" destination="VaO-y3-EXP" id="pJc-zO-SvS"/>
+                        <outlet property="photoIDLabel" destination="xpK-CY-Vcn" id="dOy-52-86K"/>
+                        <outlet property="phtoDateDetailLabel" destination="GYI-oi-ZOC" id="4dC-nT-hAD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daC-p4-D6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,6 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nasa-N3BQHYOVq5E-unsplash" width="4809" height="3606"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
