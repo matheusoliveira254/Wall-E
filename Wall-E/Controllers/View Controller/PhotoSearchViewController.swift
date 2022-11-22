@@ -9,6 +9,9 @@ import UIKit
 
 class PhotoSearchViewController: UIViewController {
 
+    //MARK: - Singleton
+    static var sharedInstance = PhotoSearchViewController()
+    
     //MARK: - IBOutles
     @IBOutlet weak var photoDateDatePicker: UIDatePicker!
     @IBOutlet weak var roverSelectionSegmentedControl: UISegmentedControl!
@@ -81,7 +84,7 @@ class PhotoSearchViewController: UIViewController {
 
 extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Photos Taken on That Date: YYY-MM-DD"
+        return "Photos Taken on That Date: YYYY-MM-DD"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,16 +92,13 @@ extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "photoListCell", for: indexPath)
-        let photoIndex = photosArray[indexPath.row]
-        cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
-        cell.detailTextLabel?.text = selectedDateString
-        cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
-//        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
-//        cell.imageView.set.
-//        cell.imageView?.translatesAutoresizingMaskIntoConstraints = true
-//        cell.imageView?.heightAnchor.constraint(equalToConstant: 80).isActive = true
-//        cell.imageView?.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoListCell", for: indexPath) as? PhotoListTableViewCell else {return UITableViewCell()}
+        let photoIndex = photosArray[indexPath.row] 
+//        cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
+//        cell.detailTextLabel?.text = selectedDateString
+//        cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
+        cell.updateCell(with: photoIndex)
+        
         return cell
     }
     

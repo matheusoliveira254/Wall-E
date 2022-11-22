@@ -22,11 +22,6 @@ class PhotoDetailViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     func updateViews() {
         photoIDLabel.text = "ID: \(photoDetailToReceive?.id ?? 0)"
         phtoDateDetailLabel.text = "Date: \(photoDetailToReceive?.date ?? "0000-00-00")"
