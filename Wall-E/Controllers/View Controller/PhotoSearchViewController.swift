@@ -93,11 +93,11 @@ extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoListCell", for: indexPath) as? PhotoListTableViewCell else {return UITableViewCell()}
-        let photoIndex = photosArray[indexPath.row] 
+        let photoIndex = photosArray[indexPath.row]
 //        cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
 //        cell.detailTextLabel?.text = selectedDateString
 //        cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
-        cell.updateCell(with: photoIndex)
+        cell.updateCell(with: photoIndex, date: selectedDateString)
         
         return cell
     }

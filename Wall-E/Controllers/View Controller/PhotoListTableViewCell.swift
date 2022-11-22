@@ -13,12 +13,12 @@ class PhotoListTableViewCell: UITableViewCell {
     @IBOutlet weak var photoCellIDLabel: UILabel!
     @IBOutlet weak var photoCellDateLabel: UILabel!
     
-    func updateCell(with photo: Photo?) {
+    func updateCell(with photo: Photo?, date: String) {
         guard let photo else {return}
         DispatchQueue.main.async{
             self.photoCellImageImageView.loadImageFrom(imageURL: photo.image)
             self.photoCellIDLabel.text = "Photo ID: \(photo.id ?? 0)"
-            self.photoCellDateLabel.text = PhotoSearchViewController.sharedInstance.selectedDateString
+            self.photoCellDateLabel.text = date
         }
     }
-}
+}//End of class
