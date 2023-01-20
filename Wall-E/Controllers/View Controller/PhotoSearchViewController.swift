@@ -67,19 +67,6 @@ class PhotoSearchViewController: UIViewController {
             }
         }
     }
-    
-    func fetchImages(with imageURL: String) {
-        NetworkingController.fetchImage(with: imageURL) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-//                    self?.photosListTableView.cell = image
-                }
-            case .failure(let error):
-                print("There was an error with the image!", error.errorDescription!)
-            }
-        }
-    }
 }//End class
 
 extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -94,11 +81,7 @@ extension PhotoSearchViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoListCell", for: indexPath) as? PhotoListTableViewCell else {return UITableViewCell()}
         let photoIndex = photosArray[indexPath.row]
-//        cell.textLabel?.text = "Photo ID: \(photoIndex.id ?? 0)"
-//        cell.detailTextLabel?.text = selectedDateString
-//        cell.imageView?.loadImageFrom(imageURL: photoIndex.image)
         cell.updateCell(with: photoIndex, date: selectedDateString)
-        
         return cell
     }
     
